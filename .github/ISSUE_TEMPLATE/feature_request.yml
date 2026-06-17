@@ -1,0 +1,77 @@
+name: Feature request
+description: Suggest a new feature or improvement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea to improve Arabic Converter? We'd love to hear it.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Where should this feature live?
+      options:
+        - Chrome extension
+        - Web app (Next.js)
+        - Landing page / marketing
+        - Conversion quality / prompts
+        - Documentation
+        - Developer experience
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: What problem does this solve, or what workflow does it improve?
+      placeholder: Users who convert long messages cannot easily reuse previous outputs...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe the feature you would like to see
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any other approaches you thought about
+      placeholder: Optional
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example use case
+      description: Show a concrete example if possible (input text, expected output, UI flow, etc.)
+      placeholder: |
+        Input: `taw nemchi lel dar`
+        Expected: save as bookmark and restore later in the popup
+
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Would you like to work on this?
+      options:
+        - Yes, I can open a PR
+        - Maybe, I need some guidance
+        - No, just suggesting the idea
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues to avoid duplicates
+          required: true

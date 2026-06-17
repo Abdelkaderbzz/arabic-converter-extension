@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussions & questions
+    url: https://github.com/Abdelkaderbzz/arabic-converter-extension/discussions
+    about: Ask questions or share ideas that are not bug reports or feature requests
+  - name: Chrome Web Store listing
+    url: https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm
+    about: Install or review the published Chrome extension

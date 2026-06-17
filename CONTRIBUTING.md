@@ -1,0 +1,80 @@
+# Contributing to Arabic Converter
+
+Thank you for your interest in contributing. This project includes a **Next.js web app**, a **Chrome extension**, and static pages for privacy policy and marketing.
+
+## Ways to contribute
+
+- Report bugs using the [bug report template](.github/ISSUE_TEMPLATE/bug_report.yml)
+- Suggest features using the [feature request template](.github/ISSUE_TEMPLATE/feature_request.yml)
+- Open a pull request with a fix or enhancement
+- Improve documentation, translations, or conversion prompts
+
+## Getting started
+
+1. Fork the repository: [arabic-converter-extension](https://github.com/Abdelkaderbzz/arabic-converter-extension)
+2. Clone your fork and create a branch:
+
+```bash
+git clone https://github.com/<your-username>/arabic-converter-extension.git
+cd arabic-converter-extension
+git checkout -b feature/my-change
+```
+
+3. Install dependencies for the web app:
+
+```bash
+pnpm install
+cp .env.example .env
+```
+
+4. Add your Gemini API key to `.env` for local web app testing.
+
+## Development workflows
+
+### Web app
+
+```bash
+pnpm dev
+pnpm lint
+pnpm build
+```
+
+### Chrome extension
+
+1. Open `chrome://extensions`
+2. Enable **Developer mode**
+3. Click **Load unpacked** and select the `extension/` folder
+4. Use your own Gemini API key in the extension settings
+
+Package for the Web Store:
+
+```bash
+cd extension && zip -r ../arabic-converter-extension.zip . -x "icons/generate.js"
+```
+
+## Pull request guidelines
+
+- Keep PRs focused on one change when possible
+- Use the [pull request template](.github/pull_request_template.md)
+- Test the area you changed (extension popup, web app, or docs)
+- Update README or extension docs if behavior changes
+
+## Project areas
+
+| Path | Purpose |
+| --- | --- |
+| `app/`, `components/` | Next.js web application |
+| `extension/` | Chrome extension (Manifest V3) |
+| `netlify-landing/` | Marketing landing page |
+| `netlify-privacy/` | Privacy policy for Web Store |
+| `translations/` | English and Arabic UI strings |
+
+## Code style
+
+- Match the existing patterns in each area (TypeScript/React for the web app, plain JS for the extension)
+- Keep changes minimal and scoped to the task
+- Prefer clear variable names and self-explanatory code over excessive comments
+
+## Questions
+
+If you are unsure whether an idea fits the project, open a feature request issue first. That helps align on scope before you invest time in a PR.

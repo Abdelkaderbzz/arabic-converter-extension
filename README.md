@@ -130,10 +130,12 @@ The Chrome extension stores the API key and preferences locally. Conversion text
 
 ## Contributing
 
+We welcome contributions. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions, then:
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/my-change`)
 3. Commit your changes
-4. Push and open a pull request
+4. Push and open a pull request using the PR template
 
 ## Acknowledgments
 
