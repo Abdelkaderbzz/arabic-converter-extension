@@ -17,7 +17,7 @@ Static landing page for the Chrome extension. Deploy the **`netlify-landing/`** 
 
 ## SEO
 
-After your first Netlify deploy, update the site URL in `index.html` if your domain differs from `https://arabic-converter.netlify.app/`:
+After your first Netlify deploy, update the site URL in `index.html` if your domain differs from `https://convert2arabic.netlify.app/`:
 
 - `link rel="canonical"`
 - `og:url`, `og:image`

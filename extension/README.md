@@ -6,6 +6,8 @@ It runs entirely in the browser — no backend required. Each user supplies thei
 
 Part of the [Arabic Converter](https://github.com/Abdelkaderbzz/arabic-converter-extension) project.
 
+**Website:** [convert2arabic.netlify.app](https://convert2arabic.netlify.app/)
+
 ## Features
 
 - Toolbar popup converter with Fusha / Tunisian modes
