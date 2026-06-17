@@ -333,6 +333,9 @@ body {
 
 .output {
   min-height: 70px;
+  max-height: 240px;
+  overflow-y: auto;
+  overflow-x: hidden;
   border-radius: 10px;
   padding: 12px;
   font-size: 20px;
@@ -340,7 +343,9 @@ body {
   text-align: right;
   border: 1px solid var(--primary);
   background: var(--primary-soft);
+  overflow-wrap: anywhere;
   word-break: break-word;
+  white-space: pre-wrap;
 }
 
 .output.empty {

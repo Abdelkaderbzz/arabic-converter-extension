@@ -243,6 +243,7 @@ function setOutput(text) {
     el.textContent = text;
     el.classList.remove("empty");
     $("copy-btn").hidden = false;
+    el.scrollTop = 0;
   } else {
     el.textContent = t().outputEmpty;
     el.classList.add("empty");

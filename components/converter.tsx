@@ -234,10 +234,10 @@ export function Converter() {
             <div
               id="arabic-output"
               className={cn(
-                "relative rounded-xl border min-h-28 p-4 text-right text-xl leading-relaxed transition-all duration-300 font-[family-name:var(--font-arabic)]",
+                "relative rounded-xl border min-h-28 max-h-80 overflow-y-auto overflow-x-hidden p-4 text-right text-xl leading-relaxed transition-all duration-300 font-[family-name:var(--font-arabic)] break-words whitespace-pre-wrap",
                 output
                   ? "bg-primary/5 border-primary/20 text-foreground fade-in"
-                  : "bg-muted/20 border-dashed border-border/80 text-muted-foreground/60 text-base flex items-center justify-center"
+                  : "bg-muted/20 border-dashed border-border/80 text-muted-foreground/60 text-base flex items-center justify-center overflow-hidden"
               )}
               dir="rtl"
             >
