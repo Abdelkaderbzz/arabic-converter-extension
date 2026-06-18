@@ -12,21 +12,21 @@ const I18N = {
   en: {
     dir: "ltr",
     title: "Arabizzi",
-    description: "Convert Tunisian Arabic text between Latin and Arabic scripts",
-    inputLabel: "Tunisian Arabic (Latin script)",
+    description: "Convert colloquial Arabic text between Latin and Arabic scripts",
+    inputLabel: "Colloquial Arabic (Latin script)",
     inputPlaceholder:
-      "Type Tunisian Arabic using Latin characters (e.g., '3aslema, chneya 7alek?')",
+      "Type colloquial Arabic using Latin characters (e.g., '3aslema, chneya 7alek?')",
     modeLabel: "Output type",
     fusha: "Fusha",
     fushaDesc: "Modern Standard Arabic",
-    tunisian: "Tunisian",
+    tunisian: "Colloquial",
     tunisianDesc: "Arabic script",
     convert: "Convert",
     converting: "Converting...",
     copy: "Copy",
     copied: "Copied!",
     outputFusha: "Modern Standard Arabic",
-    outputTunisian: "Tunisian Arabic (Arabic script)",
+    outputTunisian: "Colloquial Arabic (Arabic script)",
     outputEmpty: "Your converted text will appear here",
     historyTitle: "Recent Conversions",
     tabRecent: "Recent",
@@ -35,21 +35,23 @@ const I18N = {
     historyEmpty: "No conversion history yet",
     bookmark: "Save",
     unbookmark: "Remove from saved",
-    clear: "Clear",
+    clearAll: "Clear recent",
+    restore: "Use again",
     delete: "Delete",
+    deleteEntry: "Delete entry",
+    footerSupport: "Support Project",
     keyLabel: "Gemini API key",
     keyHint: "Stored only in your browser. Get a free key from Google AI Studio.",
     keyLink: "Get an API key →",
     save: "Save",
     saved: "Key saved",
     keyMissing: "Add your free Gemini API key in settings (⚙) to start converting.",
-    footer: "Powered by Google Gemini",
     errGeneric: "An error occurred during conversion. Please try again.",
     langButton: "العربية",
   },
   ar: {
     dir: "rtl",
-    title: "عربيزي",
+    title: "Arabizzi",
     description: "حوّل النص العامية بين الحروف اللاتينية والعربية",
     inputLabel: "العربية العامية (حروف لاتينية)",
     inputPlaceholder:
@@ -73,18 +75,29 @@ const I18N = {
     historyEmpty: "لا يوجد سجل تحويل بعد",
     bookmark: "حفظ",
     unbookmark: "إزالة من المحفوظات",
-    clear: "مسح",
+    clearAll: "مسح السجل",
+    restore: "استخدام مجدداً",
     delete: "حذف",
+    deleteEntry: "حذف التحويل",
+    footerSupport: "ادعم المشروع",
     keyLabel: "مفتاح Gemini API",
     keyHint: "يُحفظ في متصفحك فقط. احصل على مفتاح مجاني من Google AI Studio.",
     keyLink: "احصل على مفتاح →",
     save: "حفظ",
     saved: "تم حفظ المفتاح",
     keyMissing: "أضف مفتاح Gemini المجاني من الإعدادات (⚙) لبدء التحويل.",
-    footer: "مدعوم بواسطة Google Gemini",
     errGeneric: "حدث خطأ أثناء التحويل. يرجى المحاولة مرة أخرى.",
     langButton: "English",
   },
+};
+
+const ICON = {
+  bookmark: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  bookmarkFilled: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  copy: `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="2"/></svg>`,
+  check: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  x: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  restore: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 3v6h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
 };
 
 const fushaPrompt = (text) => `Translate the following Tunisian Arabic text (written in Latin characters with numbers) into formal Modern Standard Arabic (MSA).
@@ -186,7 +199,6 @@ function applyLanguage() {
   document.documentElement.dir = tr.dir;
   document.documentElement.lang = state.language;
 
-  $("title").textContent = tr.title;
   $("description").textContent = tr.description;
   $("input-label").textContent = tr.inputLabel;
   $("latin-input").placeholder = tr.inputPlaceholder;
@@ -194,14 +206,15 @@ function applyLanguage() {
   $("convert-label").textContent = tr.convert;
   $("tab-recent-label").textContent = tr.tabRecent;
   $("tab-saved-label").textContent = tr.tabSaved;
-  $("clear-btn").textContent = tr.clear;
+  $("clear-btn").title = tr.clearAll;
   $("copy-btn").textContent = tr.copy;
   $("key-label").textContent = tr.keyLabel;
   $("key-hint").textContent = tr.keyHint;
   $("key-link").textContent = tr.keyLink;
   $("save-key").textContent = tr.save;
-  $("footer-text").textContent = tr.footer;
   $("lang-btn").textContent = tr.langButton;
+  $("footer-support").textContent = tr.footerSupport;
+  $("history-empty-all").textContent = tr.historyEmpty;
 
   document.querySelector('[data-key="fusha"]').textContent = tr.fusha;
   document.querySelector('[data-key="fushaDesc"]').textContent = tr.fushaDesc;
@@ -256,8 +269,40 @@ function validateInput() {
   $("convert-btn").disabled = !hasText;
 }
 
+function formatTimestamp(timestamp) {
+  return new Date(timestamp).toLocaleString(
+    state.language === "ar" ? "ar-TN" : "en-US",
+    {
+      hour: "numeric",
+      minute: "numeric",
+      month: "short",
+      day: "numeric",
+    }
+  );
+}
+
+function restoreConversion(entry) {
+  $("latin-input").value = entry.input;
+  state.toFusha = entry.type === "fusha";
+  applyMode();
+  setOutput("");
+  setError("");
+  validateInput();
+  storageSet({ [STORAGE.mode]: state.toFusha });
+}
+
+function createIconButton(className, iconHtml, title) {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = className;
+  btn.title = title;
+  btn.innerHTML = iconHtml;
+  return btn;
+}
+
 function renderHistory() {
-  const card = $("history-card");
+  const head = $("history-head");
+  const emptyState = $("history-empty-state");
   const list = $("history-list");
   const empty = $("history-empty");
   const clearBtn = $("clear-btn");
@@ -280,13 +325,16 @@ function renderHistory() {
   );
 
   if (!state.history.length) {
-    card.hidden = true;
-    list.innerHTML = "";
+    head.hidden = true;
+    emptyState.hidden = false;
     empty.hidden = true;
+    list.innerHTML = "";
+    clearBtn.hidden = true;
     return;
   }
 
-  card.hidden = false;
+  head.hidden = false;
+  emptyState.hidden = true;
   clearBtn.hidden = state.historyTab !== "recent" || !recent.length;
   list.innerHTML = "";
 
@@ -307,18 +355,17 @@ function renderHistory() {
     top.className = "hi-top";
 
     const type = document.createElement("span");
-    type.className = "hi-type";
+    type.className = `hi-type ${entry.type}`;
     type.textContent = entry.type === "fusha" ? t().fusha : t().tunisian;
 
     const actions = document.createElement("div");
     actions.className = "hi-actions";
 
-    const bookmarkBtn = document.createElement("button");
-    bookmarkBtn.className = `copy-btn bookmark-btn${
-      entry.bookmarked ? " active" : ""
-    }`;
-    bookmarkBtn.textContent = entry.bookmarked ? "★" : "☆";
-    bookmarkBtn.title = entry.bookmarked ? t().unbookmark : t().bookmark;
+    const bookmarkBtn = createIconButton(
+      `hi-action${entry.bookmarked ? " active" : ""}`,
+      entry.bookmarked ? ICON.bookmarkFilled : ICON.bookmark,
+      entry.bookmarked ? t().unbookmark : t().bookmark
+    );
     bookmarkBtn.addEventListener("click", async () => {
       state.history = state.history.map((e) =>
         e.id === entry.id ? { ...e, bookmarked: !e.bookmarked } : e
@@ -327,19 +374,20 @@ function renderHistory() {
       renderHistory();
     });
 
-    const copyBtn = document.createElement("button");
-    copyBtn.className = "copy-btn";
-    copyBtn.textContent = t().copy;
+    const copyBtn = createIconButton("hi-action", ICON.copy, t().copy);
     copyBtn.addEventListener("click", () => {
       navigator.clipboard.writeText(entry.output);
-      copyBtn.textContent = t().copied;
-      setTimeout(() => (copyBtn.textContent = t().copy), 1500);
+      copyBtn.innerHTML = ICON.check;
+      copyBtn.classList.add("copied");
+      copyBtn.title = t().copied;
+      setTimeout(() => {
+        copyBtn.innerHTML = ICON.copy;
+        copyBtn.classList.remove("copied");
+        copyBtn.title = t().copy;
+      }, 1500);
     });
 
-    const delBtn = document.createElement("button");
-    delBtn.className = "copy-btn";
-    delBtn.textContent = "✕";
-    delBtn.title = t().delete;
+    const delBtn = createIconButton("hi-action danger", ICON.x, t().deleteEntry);
     delBtn.addEventListener("click", async () => {
       state.history = state.history.filter((e) => e.id !== entry.id);
       await storageSet({ [STORAGE.history]: state.history });
@@ -362,9 +410,27 @@ function renderHistory() {
     output.dir = "rtl";
     output.textContent = entry.output;
 
+    const footer = document.createElement("div");
+    footer.className = "hi-footer";
+
+    const time = document.createElement("span");
+    time.className = "hi-time";
+    time.textContent = formatTimestamp(entry.timestamp);
+
+    const restoreBtn = document.createElement("button");
+    restoreBtn.type = "button";
+    restoreBtn.className = "hi-restore";
+    restoreBtn.title = t().restore;
+    restoreBtn.innerHTML = `${ICON.restore}<span>${t().restore}</span>`;
+    restoreBtn.addEventListener("click", () => restoreConversion(entry));
+
+    footer.appendChild(time);
+    footer.appendChild(restoreBtn);
+
     item.appendChild(top);
     item.appendChild(input);
     item.appendChild(output);
+    item.appendChild(footer);
     list.appendChild(item);
   });
 }
@@ -485,7 +551,7 @@ async function init() {
   ]);
 
   state.apiKey = stored[STORAGE.apiKey] || "";
-  state.language = stored[STORAGE.language] || "en";
+  state.language = stored[STORAGE.language] || "ar";
   state.toFusha =
     stored[STORAGE.mode] === undefined ? true : stored[STORAGE.mode];
   state.history = stored[STORAGE.history] || [];
