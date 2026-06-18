@@ -1,5 +1,5 @@
 export const ar = {
-  title: "عربيزي",
+  title: "Arabizzi",
   description: "حوّل النص العامية بين الحروف اللاتينية والعربية",
   latinInput: {
     label: "العربية العامية (حروف لاتينية)",

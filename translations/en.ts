@@ -1,21 +1,21 @@
 export const en = {
   title: "Arabizzi",
-  description: "Convert Tunisian Arabic text between Latin and Arabic scripts",
+  description: "Convert colloquial Arabic text between Latin and Arabic scripts",
   latinInput: {
-    label: "Tunisian Arabic (Latin script)",
+    label: "Colloquial Arabic (Latin script)",
     placeholder:
-      "Type Tunisian Arabic using Latin characters (e.g., '3aslema, chneya 7alek?')",
+      "Type colloquial Arabic using Latin characters (e.g., '3aslema, chneya 7alek?')",
   },
   mode: {
     label: "Output type",
     fusha: "Fusha",
     fushaDesc: "Modern Standard Arabic",
-    tunisian: "Tunisian",
+    tunisian: "Colloquial",
     tunisianDesc: "Arabic script",
   },
   switchLabel: {
     fusha: "Convert to Modern Standard Arabic (فصحى)",
-    tunisian: "Convert to Tunisian Arabic Script",
+    tunisian: "Convert to Colloquial Arabic Script",
   },
   button: {
     convert: "Convert",
@@ -25,7 +25,7 @@ export const en = {
   },
   output: {
     fusha: "Modern Standard Arabic (الفصحى)",
-    tunisian: "Tunisian Arabic (Arabic script)",
+    tunisian: "Colloquial Arabic (Arabic script)",
     empty: "Your converted text will appear here",
   },
   examples: {
