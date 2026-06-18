@@ -56,7 +56,7 @@ export function Footer() {
           asChild
         >
           <a
-            href="https://buymeacoffee.com/hazembraiek"
+            href="https://buymeacoffee.com/jhE1Ep04XT"
             target="_blank"
             rel="noopener noreferrer"
           >
