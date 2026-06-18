@@ -11,7 +11,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "extension": "bash scripts/run-extension.sh",
+    "extension:preview": "python3 -m http.server 5173 --directory extension"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
