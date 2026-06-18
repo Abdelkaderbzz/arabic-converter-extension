@@ -195,7 +195,7 @@ export function HistoryPanel() {
                 {entry.input}
               </div>
               <div
-                className="text-right text-lg leading-relaxed font-[family-name:var(--font-arabic)]"
+                className="text-right text-base leading-relaxed font-arabic"
                 dir="rtl"
               >
                 {entry.output}

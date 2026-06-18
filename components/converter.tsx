@@ -96,7 +96,7 @@ export function Converter() {
 
   return (
     <Card
-      className="glass-card rounded-2xl overflow-hidden fade-in-up"
+      className="glass-card rounded-2xl fade-in-up"
       dir={isRtl ? "rtl" : "ltr"}
       style={{ animationDelay: "0.1s" }}
     >
@@ -116,7 +116,7 @@ export function Converter() {
               placeholder={t.latinInput.placeholder}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              className="min-h-28 text-base resize-none rounded-xl border-border/80 bg-muted/30 focus-visible:ring-primary/30"
+              className="min-h-24 text-sm resize-y rounded-xl border-border/80 bg-muted/30 focus-visible:ring-primary/30"
               dir="ltr"
               autoFocus
             />
@@ -130,20 +130,23 @@ export function Converter() {
             >
               {t.mode.label}
             </span>
-            <div className="grid grid-cols-2 gap-2 p-1 rounded-xl bg-muted/50 border border-border/60">
+            <div
+              className={cn(
+                "grid grid-cols-2 gap-2 p-1 rounded-xl bg-muted/50 border border-border/60",
+                isRtl && "font-arabic"
+              )}
+            >
               <button
                 type="button"
                 onClick={() => setToFusha(true)}
                 className={cn(
-                  "rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                  "rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200",
                   toFusha
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground hover:bg-background/60"
                 )}
               >
-                <span className={isRtl ? "font-[family-name:var(--font-arabic)]" : ""}>
-                  {t.mode.fusha}
-                </span>
+                <span>{t.mode.fusha}</span>
                 <span className="block text-[11px] opacity-80 mt-0.5 font-normal">
                   {t.mode.fushaDesc}
                 </span>
@@ -152,15 +155,13 @@ export function Converter() {
                 type="button"
                 onClick={() => setToFusha(false)}
                 className={cn(
-                  "rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                  "rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200",
                   !toFusha
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground hover:bg-background/60"
                 )}
               >
-                <span className={isRtl ? "font-[family-name:var(--font-arabic)]" : ""}>
-                  {t.mode.tunisian}
-                </span>
+                <span>{t.mode.tunisian}</span>
                 <span className="block text-[11px] opacity-80 mt-0.5 font-normal">
                   {t.mode.tunisianDesc}
                 </span>
@@ -170,7 +171,10 @@ export function Converter() {
 
           <Button
             type="submit"
-            className="w-full h-11 rounded-xl text-base font-semibold shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/25 transition-shadow"
+            className={cn(
+              "w-full h-10 rounded-xl text-sm font-semibold font-sans shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/25 transition-shadow",
+              isRtl && "font-arabic"
+            )}
             disabled={isLoading || !input.trim()}
           >
             {isLoading ? (
@@ -234,10 +238,10 @@ export function Converter() {
             <div
               id="arabic-output"
               className={cn(
-                "relative rounded-xl border min-h-28 max-h-80 overflow-y-auto overflow-x-hidden p-4 text-right text-xl leading-relaxed transition-all duration-300 font-[family-name:var(--font-arabic)] break-words whitespace-pre-wrap",
+                "relative rounded-xl border min-h-24 max-h-56 overflow-y-auto overflow-x-hidden p-3 text-right text-base leading-relaxed transition-all duration-300 font-arabic break-words whitespace-pre-wrap",
                 output
                   ? "bg-primary/5 border-primary/20 text-foreground fade-in"
-                  : "bg-muted/20 border-dashed border-border/80 text-muted-foreground/60 text-base flex items-center justify-center overflow-hidden"
+                  : "bg-muted/20 border-dashed border-border/80 text-muted-foreground/60 text-sm flex items-center justify-center"
               )}
               dir="rtl"
             >
