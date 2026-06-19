@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Arabizzi",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Convert colloquial Arabic (Latin/Arabizi) into Arabic script or Modern Standard Arabic (Fusha).",
   "action": {
     "default_popup": "popup.html",

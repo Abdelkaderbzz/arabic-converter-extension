@@ -52,7 +52,7 @@ const I18N = {
   ar: {
     dir: "rtl",
     title: "Arabizzi",
-    description: "حوّل النص العامية بين الحروف اللاتينية والعربية",
+    description: "حوّل النص بالعامية بين الحروف اللاتينية والعربية",
     inputLabel: "العربية العامية (حروف لاتينية)",
     inputPlaceholder:
       "اكتب بالعربية العامية باستخدام الحروف اللاتينية (مثال: '3aslema, chneya 7alek?')",
