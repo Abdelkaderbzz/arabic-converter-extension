@@ -6,48 +6,54 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <!-- Primary SEO -->
-    <title>Arabizzi | Chrome Extension for Arabizi to Arabic &amp; Fusha</title>
+    <title>Arabizzi — Convert Arabizi to Arabic | Free Chrome Extension</title>
     <meta
       name="description"
-      content="Free Chrome extension that converts Arabizi and Latin text into Tunisian Arabic script or Modern Standard Arabic (Fusha). No Arabic keyboard needed. Fast, bilingual, powered by Gemini."
+      content="Arabizzi converts Arabizi and Latin text to colloquial Arabic script or Modern Standard Arabic (Fusha). Free Chrome extension with bilingual UI, history, and Gemini-powered conversion."
     />
     <meta
       name="keywords"
-      content="Arabic converter, Arabizi, Tunisian Arabic, Fusha, Chrome extension, Latin to Arabic, Arabic keyboard alternative, 3aslema, Arabizi to Arabic, MSA converter, Tunisian dialect"
+      content="Arabizi to Arabic, Arabic converter, Latin to Arabic, Fusha converter, colloquial Arabic, Tunisian Arabic, Chrome extension, Arabizi keyboard, MSA, Gemini Arabic"
     />
-    <meta name="author" content="abdelkaderbzz" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Abdelkader Bouzomita" />
+    <meta name="application-name" content="Arabizzi" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow" />
     <meta name="theme-color" content="#25876d" />
     <link rel="canonical" href="https://arabizzi.com/" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <link rel="alternate" hreflang="en" href="https://arabizzi.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://arabizzi.com/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar" />
     <meta property="og:site_name" content="Arabizzi" />
     <meta
       property="og:title"
-      content="Arabizzi | Chrome Extension for Arabizi to Arabic &amp; Fusha"
+      content="Arabizzi — Convert Arabizi to Arabic | Free Chrome Extension"
     />
     <meta
       property="og:description"
-      content="Type in Latin, get Arabic instantly. Convert Arabizi to Tunisian Arabic script or Fusha from your browser toolbar."
+      content="Type in Latin, get Arabic instantly. Convert Arabizi to colloquial Arabic script or Fusha from your browser toolbar."
     />
     <meta property="og:url" content="https://arabizzi.com/" />
     <meta property="og:image" content="https://arabizzi.com/icon.png" />
-    <meta property="og:image:alt" content="Arabizzi Chrome extension icon" />
+    <meta property="og:image:alt" content="Arabizzi — Arabizi to Arabic Chrome extension" />
     <meta property="og:image:width" content="128" />
     <meta property="og:image:height" content="128" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Arabizzi | Chrome Extension" />
+    <meta name="twitter:title" content="Arabizzi — Convert Arabizi to Arabic" />
     <meta
       name="twitter:description"
-      content="Convert Arabizi and Latin phrases to Tunisian Arabic or Fusha in one click. Free Chrome extension."
+      content="Free Chrome extension: convert Arabizi and Latin text to colloquial Arabic or Fusha in one click."
     />
     <meta name="twitter:image" content="https://arabizzi.com/icon.png" />
     <meta name="twitter:image:alt" content="Arabizzi Chrome extension icon" />
+    <meta name="twitter:creator" content="@Abdelkaderbzz" />
 
     <!-- Icons -->
     <link rel="icon" href="./icon.png" type="image/png" />
@@ -60,22 +66,38 @@
         "@context": "https://schema.org",
         "@graph": [
           {
+            "@type": "Organization",
+            "@id": "https://arabizzi.com/#organization",
+            "name": "Arabizzi",
+            "url": "https://arabizzi.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://arabizzi.com/icon.png",
+              "width": 128,
+              "height": 128
+            },
+            "sameAs": [
+              "https://github.com/Abdelkaderbzz/arabizzi",
+              "https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+            ]
+          },
+          {
             "@type": "WebSite",
             "@id": "https://arabizzi.com/#website",
             "url": "https://arabizzi.com/",
             "name": "Arabizzi",
-            "description": "Chrome extension landing page for converting Arabizi and Latin text to Tunisian Arabic or Fusha.",
-            "inLanguage": "en",
+            "description": "Official site for the Arabizzi Chrome extension — convert Arabizi and Latin text to colloquial Arabic or Fusha.",
+            "inLanguage": ["en", "ar"],
             "publisher": {
-              "@id": "https://arabizzi.com/#person"
+              "@id": "https://arabizzi.com/#organization"
             }
           },
           {
             "@type": "WebPage",
             "@id": "https://arabizzi.com/#webpage",
             "url": "https://arabizzi.com/",
-            "name": "Arabizzi | Chrome Extension",
-            "description": "Free Chrome extension that converts Arabizi and Latin text into Tunisian Arabic script or Modern Standard Arabic (Fusha).",
+            "name": "Arabizzi — Convert Arabizi to Arabic",
+            "description": "Free Chrome extension that converts Arabizi and Latin text into colloquial Arabic script or Modern Standard Arabic (Fusha).",
             "isPartOf": {
               "@id": "https://arabizzi.com/#website"
             },
@@ -92,7 +114,7 @@
             "applicationSubCategory": "Productivity",
             "operatingSystem": "Chrome",
             "browserRequirements": "Requires Google Chrome",
-            "description": "Convert Tunisian Arabic written in Latin letters (Arabizi) into Arabic script or Modern Standard Arabic (Fusha).",
+            "description": "Convert colloquial Arabic and Arabizi written in Latin letters into Arabic script or Modern Standard Arabic (Fusha).",
             "url": "https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm",
             "downloadUrl": "https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm",
             "softwareVersion": "1.2.2",
@@ -103,15 +125,57 @@
               "availability": "https://schema.org/InStock"
             },
             "featureList": [
-              "Latin and Arabizi to Arabic conversion",
-              "Tunisian Arabic script mode",
+              "Arabizi and Latin to Arabic conversion",
+              "Colloquial Arabic script mode",
               "Modern Standard Arabic (Fusha) mode",
               "English and Arabic interface",
-              "Copy output, conversion history, and saved bookmarks"
+              "Conversion history and saved bookmarks",
+              "Powered by Google Gemini"
             ],
             "author": {
               "@id": "https://arabizzi.com/#person"
+            },
+            "publisher": {
+              "@id": "https://arabizzi.com/#organization"
             }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://arabizzi.com/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is Arabizzi?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Arabizzi is a free Chrome extension that converts text written in Latin letters (Arabizi) into proper Arabic script — either colloquial Arabic or Modern Standard Arabic (Fusha)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is Arabizzi free to use?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Arabizzi is free. You bring your own Google Gemini API key from Google AI Studio, which includes a free tier."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need an Arabic keyboard?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Type naturally in Latin letters — for example 3aslema or chneya 7alek — and Arabizzi returns Arabic script you can copy anywhere."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does Arabizzi handle my data?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Your API key and preferences stay in your browser. Text is sent only to Google Gemini when you convert. See the privacy policy at arabizzi.com/privacy.html."
+                }
+              }
+            ]
           },
           {
             "@type": "VideoObject",
@@ -240,12 +304,38 @@
         align-items: center;
         justify-content: space-between;
         gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .site-nav a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .site-nav a:hover {
+        color: var(--primary);
+        text-decoration: none;
       }
 
       .brand {
         display: flex;
         align-items: center;
         gap: 12px;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .brand:hover {
+        text-decoration: none;
       }
 
       .brand img {
@@ -853,6 +943,34 @@
         font-size: 0.95rem;
       }
 
+      .faq-list {
+        max-width: 720px;
+        margin: 0 auto;
+        display: grid;
+        gap: 12px;
+      }
+
+      .faq-item {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px 22px;
+      }
+
+      .faq-item h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+
+      .faq-item p {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .faq-item a {
+        font-weight: 600;
+      }
+
       .footer-credit {
         display: flex;
         flex-direction: column;
@@ -895,6 +1013,13 @@
         header .btn-ghost {
           display: none;
         }
+
+        .site-nav {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+          padding-top: 4px;
+        }
       }
     </style>
   </head>
@@ -910,15 +1035,20 @@
     <div class="page-bg">
       <div class="container">
         <header>
-          <div class="brand">
+          <a class="brand" href="./index.html" aria-label="Arabizzi home">
             <img
               src="./icon.png"
-              alt="Arabizzi Chrome extension logo"
+              alt="Arabizzi logo"
               width="44"
               height="44"
             />
             <span>Arabizzi</span>
-          </div>
+          </a>
+          <nav class="site-nav" aria-label="Site">
+            <a href="./releases.html">Releases</a>
+            <a href="./privacy.html">Privacy</a>
+            <a href="./vote.html">Vote</a>
+          </nav>
           <a
             class="btn btn-primary"
             href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
@@ -929,10 +1059,11 @@
           </a>
         </header>
 
-        <section class="hero">
+        <main id="main-content">
+        <section class="hero" aria-labelledby="hero-title">
           <div>
             <span class="badge">Chrome Extension · Free</span>
-            <h1>
+            <h1 id="hero-title">
               <span class="sr-only">Arabizzi: </span>
               Type in Latin.<br />Get Arabic instantly.
             </h1>
@@ -1206,6 +1337,45 @@
           </div>
         </section>
 
+        <section id="faq">
+          <div class="section-title">
+            <h2>Frequently asked questions</h2>
+            <p>Quick answers about Arabizzi, privacy, and how conversion works.</p>
+          </div>
+          <div class="faq-list">
+            <article class="faq-item">
+              <h3>What is Arabizzi?</h3>
+              <p>
+                A free Chrome extension that converts Arabizi and Latin text into
+                colloquial Arabic script or Modern Standard Arabic (Fusha), powered
+                by Google Gemini.
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>Is it free?</h3>
+              <p>
+                Yes. Arabizzi is free to install. You use your own Gemini API key
+                from Google AI Studio, which includes a free tier.
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>Do I need an Arabic keyboard?</h3>
+              <p>
+                No. Type in Latin letters — like <code>3aslema</code> or
+                <code>chneya 7alek</code> — and copy the Arabic output anywhere.
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>How is my data handled?</h3>
+              <p>
+                Your API key and settings stay in your browser. Text is sent only to
+                Google Gemini when you convert. Read our
+                <a href="./privacy.html">privacy policy</a>.
+              </p>
+            </article>
+          </div>
+        </section>
+
         <section id="contribute" class="contribute">
           <h3>Open for contributions and new ideas</h3>
           <p>
@@ -1238,6 +1408,7 @@
             Get the Chrome Extension
           </a>
         </div>
+        </main>
 
         <footer>
           <div class="footer-credit">
@@ -1252,6 +1423,7 @@
           <div class="footer-links">
             <a href="./releases.html">Releases</a>
             <a href="./privacy.html">Privacy</a>
+            <a href="./vote.html">Vote</a>
             <a
               href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
               target="_blank"
