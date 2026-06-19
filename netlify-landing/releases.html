@@ -5,24 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-    <title>Releases | Arabizzi Chrome Extension</title>
+    <title>Release History | Arabizzi Chrome Extension</title>
     <meta
       name="description"
-      content="Current version and latest release notes for the Arabizzi Chrome extension — Arabizi to Arabic and Fusha conversion."
+      content="Full Arabizzi release history and changelog — v1.0.0 through v1.2.2 with dates and changes."
     />
-    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Abdelkader Bouzomita" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#25876d" />
     <link rel="canonical" href="https://arabizzi.com/releases.html" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Arabizzi" />
-    <meta property="og:title" content="Releases | Arabizzi Chrome Extension" />
+    <meta property="og:title" content="Release Notes | Arabizzi Chrome Extension" />
     <meta
       property="og:description"
       content="Current version and latest release notes for the Arabizzi Chrome extension."
     />
     <meta property="og:url" content="https://arabizzi.com/releases.html" />
     <meta property="og:image" content="https://arabizzi.com/icon.png" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Release Notes | Arabizzi" />
+    <meta
+      name="twitter:description"
+      content="Arabizzi v1.2.2 — landing site, vote guide, and extension updates."
+    />
+    <meta name="twitter:image" content="https://arabizzi.com/icon.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://arabizzi.com/releases.html#webpage",
+            "url": "https://arabizzi.com/releases.html",
+            "name": "Release Notes | Arabizzi",
+            "description": "Current version and release notes for the Arabizzi Chrome extension.",
+            "isPartOf": { "@id": "https://arabizzi.com/#website" },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "Arabizzi",
+            "softwareVersion": "1.2.2",
+            "applicationCategory": "BrowserApplication",
+            "operatingSystem": "Chrome",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://arabizzi.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Releases",
+                "item": "https://arabizzi.com/releases.html"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
 
     <link rel="icon" href="./icon.png" type="image/png" />
     <link rel="apple-touch-icon" href="./icon.png" />
@@ -112,7 +168,7 @@
       }
 
       .container {
-        width: min(760px, calc(100% - 40px));
+        width: min(820px, calc(100% - 40px));
         margin: 0 auto;
       }
 
@@ -250,8 +306,79 @@
         background: var(--card);
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        padding: 28px;
+        padding: 24px 26px;
         box-shadow: 0 4px 24px rgba(29, 35, 41, 0.04);
+      }
+
+      .release-timeline {
+        list-style: none;
+        position: relative;
+        display: grid;
+        gap: 0;
+      }
+
+      .release-timeline::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          var(--primary),
+          rgba(37, 135, 109, 0.15)
+        );
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-left: 44px;
+        padding-bottom: 28px;
+      }
+
+      .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+
+      .timeline-marker {
+        position: absolute;
+        left: 8px;
+        top: 22px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--card);
+        border: 3px solid var(--primary);
+        box-shadow: 0 0 0 4px var(--primary-soft);
+      }
+
+      .timeline-item--latest .timeline-marker {
+        background: var(--primary);
+        box-shadow: 0 0 0 4px rgba(37, 135, 109, 0.2);
+      }
+
+      .timeline-item--latest .release-card {
+        border-color: rgba(37, 135, 109, 0.35);
+        box-shadow: 0 8px 32px rgba(37, 135, 109, 0.1);
+      }
+
+      .timeline-badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--primary-dark);
+        background: var(--primary-soft);
+        padding: 4px 10px;
+        border-radius: 999px;
+        margin-bottom: 10px;
+      }
+
+      .timeline-badge--latest {
+        background: var(--primary);
+        color: #fff;
       }
 
       .release-header {
@@ -260,14 +387,18 @@
         align-items: baseline;
         justify-content: space-between;
         gap: 12px;
-        margin-bottom: 24px;
-        padding-bottom: 20px;
+        margin-bottom: 18px;
+        padding-bottom: 16px;
         border-bottom: 1px solid var(--border);
       }
 
       .release-title {
-        font-size: 1.35rem;
+        font-size: 1.2rem;
         font-weight: 700;
+      }
+
+      .release-version {
+        color: var(--primary);
       }
 
       .release-date {
@@ -276,7 +407,7 @@
       }
 
       .release-section {
-        margin-bottom: 28px;
+        margin-bottom: 20px;
       }
 
       .release-section:last-child {
@@ -337,6 +468,42 @@
         border: 1px solid var(--border);
       }
 
+      .release-link {
+        display: inline-flex;
+        margin-top: 14px;
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+
+      .timeline-footer {
+        margin-top: 8px;
+        padding: 18px 22px;
+        border-radius: var(--radius);
+        background: var(--primary-soft);
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+
+      .timeline-footer .actions {
+        margin-top: 16px;
+      }
+
+      @media (max-width: 640px) {
+        .release-timeline::before {
+          left: 11px;
+        }
+
+        .timeline-item {
+          padding-left: 36px;
+        }
+
+        .timeline-marker {
+          left: 4px;
+          width: 14px;
+          height: 14px;
+        }
+      }
+
       footer {
         padding: 32px 0 48px;
         border-top: 1px solid var(--border);
@@ -395,8 +562,11 @@
 
         <main>
           <div class="page-intro">
-            <h1>Releases</h1>
-            <p>Current extension version and the latest update notes.</p>
+            <h1>Release history</h1>
+            <p>
+              Full changelog for the Arabizzi Chrome extension — every version,
+              date, and what changed.
+            </p>
           </div>
 
           <section class="version-card" aria-label="Current version">
@@ -407,65 +577,213 @@
             <span class="version-status">Live on Chrome Web Store</span>
           </section>
 
-          <article class="release-card" aria-labelledby="release-title">
-            <div class="release-header">
-              <h2 class="release-title" id="release-title">
-                v1.2.2 — Landing site and Qabilah vote guide
-              </h2>
-              <time class="release-date" datetime="2026-06-19">June 19, 2026</time>
-            </div>
+          <ol class="release-timeline" aria-label="All releases">
+            <li class="timeline-item timeline-item--latest" id="v1-2-2">
+              <span class="timeline-marker" aria-hidden="true"></span>
+              <article class="release-card">
+                <span class="timeline-badge timeline-badge--latest">Latest</span>
+                <div class="release-header">
+                  <h2 class="release-title">
+                    <span class="release-version">v1.2.2</span> — Landing site and
+                    Qabilah vote guide
+                  </h2>
+                  <time class="release-date" datetime="2026-06-19">June 19, 2026</time>
+                </div>
+                <section class="release-section" lang="en">
+                  <h2>What's new</h2>
+                  <ul>
+                    <li>
+                      <strong>Qabilah vote guide</strong> —
+                      <a href="./vote.html">vote.html</a> with countdown and
+                      highlighted <strong dir="rtl">تصويت</strong> button
+                    </li>
+                    <li><strong>Fixed vote banner</strong> on all landing pages</li>
+                    <li><strong>Releases &amp; privacy pages</strong> on arabizzi.com</li>
+                    <li><strong>Feeduser widget</strong> for site feedback</li>
+                    <li><strong>SEO improvements</strong> — sitemap, FAQ, structured data</li>
+                  </ul>
+                </section>
+                <section class="release-section" dir="rtl" lang="ar">
+                  <h2>ما الجديد</h2>
+                  <ul>
+                    <li><strong>دليل التصويت في قبيلة</strong></li>
+                    <li><strong>شريط تصويت ثابت</strong></li>
+                    <li><strong>صفحات الإصدارات والخصوصية</strong></li>
+                    <li><strong>ودجت Feeduser</strong></li>
+                  </ul>
+                </section>
+                <a
+                  class="release-link"
+                  href="https://github.com/Abdelkaderbzz/arabizzi/releases/tag/v1.2.2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View on GitHub →</a
+                >
+              </article>
+            </li>
 
-            <section class="release-section" lang="en">
-              <h2>What's new</h2>
-              <ul>
-                <li>
-                  <strong>Qabilah vote guide</strong> — step-by-step page at
-                  <a href="./vote.html">arabizzi.com/vote.html</a> with countdown
-                  and highlighted <strong dir="rtl">تصويت</strong> button
-                </li>
-                <li>
-                  <strong>Fixed vote banner</strong> — top call-to-action on all
-                  landing pages
-                </li>
-                <li>
-                  <strong>Releases &amp; privacy pages</strong> — consolidated on
-                  arabizzi.com
-                </li>
-                <li>
-                  <strong>Feeduser widget</strong> — feedback on the landing site
-                </li>
-              </ul>
-            </section>
+            <li class="timeline-item" id="v1-2-1">
+              <span class="timeline-marker" aria-hidden="true"></span>
+              <article class="release-card">
+                <div class="release-header">
+                  <h2 class="release-title">
+                    <span class="release-version">v1.2.1</span> — Store publish package
+                  </h2>
+                  <time class="release-date" datetime="2026-06-19">June 19, 2026</time>
+                </div>
+                <section class="release-section" lang="en">
+                  <h2>What's new</h2>
+                  <ul>
+                    <li><strong>Arabic publish copy</strong> for Chrome Web Store</li>
+                    <li><strong>Arabic description polish</strong> in the extension UI</li>
+                    <li><strong>Store-ready ZIP</strong> for Web Store upload</li>
+                  </ul>
+                </section>
+                <section class="release-section" dir="rtl" lang="ar">
+                  <h2>ما الجديد</h2>
+                  <ul>
+                    <li><strong>نصوص عربية للنشر</strong></li>
+                    <li><strong>تحسين الوصف العربي</strong></li>
+                    <li><strong>حزمة ZIP</strong> جاهزة للمتجر</li>
+                  </ul>
+                </section>
+                <a
+                  class="release-link"
+                  href="https://github.com/Abdelkaderbzz/arabizzi/releases/tag/v1.2.1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View on GitHub →</a
+                >
+              </article>
+            </li>
 
-            <section class="release-section" dir="rtl" lang="ar">
-              <h2>ما الجديد</h2>
-              <ul>
-                <li>
-                  <strong>دليل التصويت في قبيلة</strong> — صفحة
-                  <a href="./vote.html">vote.html</a> مع عدّاد وخطوات واضحة
-                </li>
-                <li><strong>شريط تصويت ثابت</strong> في أعلى الموقع</li>
-                <li><strong>صفحات الإصدارات والخصوصية</strong> على arabizzi.com</li>
-                <li><strong>ودجت Feeduser</strong> للملاحظات</li>
-              </ul>
-            </section>
+            <li class="timeline-item" id="v1-2-0">
+              <span class="timeline-marker" aria-hidden="true"></span>
+              <article class="release-card">
+                <div class="release-header">
+                  <h2 class="release-title">
+                    <span class="release-version">v1.2.0</span> — Colloquial Arabic UI
+                    refresh
+                  </h2>
+                  <time class="release-date" datetime="2026-06-18">June 18, 2026</time>
+                </div>
+                <section class="release-section" lang="en">
+                  <h2>What's new</h2>
+                  <ul>
+                    <li>
+                      <strong>Colloquial Arabic labels</strong> — عامية instead of
+                      Tunisian
+                    </li>
+                    <li>
+                      <strong>History panel</strong> — Recent/Saved tabs, bookmarks,
+                      restore, timestamps
+                    </li>
+                    <li>
+                      <strong>UI polish</strong> — Thmanyah font, smaller typography,
+                      scrollable output
+                    </li>
+                    <li><strong>Fixed brand</strong> — title stays <strong>Arabizzi</strong></li>
+                    <li><strong>Dev tooling</strong> — preview page and Chrome load helper</li>
+                  </ul>
+                </section>
+                <section class="release-section" dir="rtl" lang="ar">
+                  <h2>ما الجديد</h2>
+                  <ul>
+                    <li><strong>العربية العامية</strong> — تسميات عامية في الواجهة</li>
+                    <li><strong>سجل التحويلات</strong> — الأخيرة والمحفوظة</li>
+                    <li><strong>تحسينات الواجهة</strong> — خط ثمانية وإخراج قابل للتمرير</li>
+                  </ul>
+                </section>
+                <a
+                  class="release-link"
+                  href="https://github.com/Abdelkaderbzz/arabizzi/releases/tag/v1.2.0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View on GitHub →</a
+                >
+              </article>
+            </li>
 
-            <p class="release-note">
-              Install or update from the
-              <a
-                href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Chrome Web Store</a
-              >. Older releases are on
-              <a
-                href="https://github.com/Abdelkaderbzz/arabizzi/releases"
-                target="_blank"
-                rel="noopener noreferrer"
-                >GitHub</a
-              >.
-            </p>
+            <li class="timeline-item" id="v1-1-0">
+              <span class="timeline-marker" aria-hidden="true"></span>
+              <article class="release-card">
+                <div class="release-header">
+                  <h2 class="release-title">
+                    <span class="release-version">v1.1.0</span> — Bookmarks, new logo,
+                    and landing page
+                  </h2>
+                  <time class="release-date" datetime="2026-06-17">June 17, 2026</time>
+                </div>
+                <section class="release-section" lang="en">
+                  <h2>What's new</h2>
+                  <ul>
+                    <li>
+                      <strong>Saved bookmarks</strong> — Recent/Saved tabs for
+                      conversions
+                    </li>
+                    <li><strong>New logo</strong> and regenerated store icons</li>
+                    <li><strong>Thmanyah Sans</strong> typography in the extension</li>
+                    <li><strong>Landing page</strong> — arabizzi.com marketing site</li>
+                  </ul>
+                </section>
+                <a
+                  class="release-link"
+                  href="https://github.com/Abdelkaderbzz/arabizzi/releases/tag/v1.1.0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View on GitHub →</a
+                >
+              </article>
+            </li>
 
+            <li class="timeline-item" id="v1-0-0">
+              <span class="timeline-marker" aria-hidden="true"></span>
+              <article class="release-card">
+                <div class="release-header">
+                  <h2 class="release-title">
+                    <span class="release-version">v1.0.0</span> — Initial Chrome
+                    extension release
+                  </h2>
+                  <time class="release-date" datetime="2026-06-17">June 17, 2026</time>
+                </div>
+                <section class="release-section" lang="en">
+                  <h2>Highlights</h2>
+                  <ul>
+                    <li>
+                      Convert Arabizi to Arabic script or Modern Standard Arabic
+                      (Fusha)
+                    </li>
+                    <li>Fusha / colloquial output modes</li>
+                    <li>Bring-your-own Gemini API key (stored locally)</li>
+                    <li>Bilingual English / Arabic interface with RTL</li>
+                    <li>Copy output and recent conversion history</li>
+                  </ul>
+                </section>
+                <a
+                  class="release-link"
+                  href="https://github.com/Abdelkaderbzz/arabizzi/releases/tag/v1.0.0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View on GitHub →</a
+                >
+              </article>
+            </li>
+          </ol>
+
+          <div class="timeline-footer">
+            Install or update from the
+            <a
+              href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Chrome Web Store</a
+            >. All packages and source are on
+            <a
+              href="https://github.com/Abdelkaderbzz/arabizzi/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub Releases</a
+            >.
             <div class="actions">
               <a
                 class="btn btn-primary"
@@ -477,14 +795,14 @@
               </a>
               <a
                 class="btn btn-ghost"
-                href="https://github.com/Abdelkaderbzz/arabizzi/releases/tag/v1.2.2"
+                href="https://github.com/Abdelkaderbzz/arabizzi/releases"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View on GitHub
+                All releases on GitHub
               </a>
             </div>
-          </article>
+          </div>
         </main>
 
         <footer>
