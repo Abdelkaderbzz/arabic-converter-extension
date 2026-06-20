@@ -179,6 +179,21 @@
           },
           {
             "@type": "VideoObject",
+            "@id": "https://arabizzi.com/#community-review",
+            "name": "محول العربية — Arabizzi Chrome extension review",
+            "description": "Community review of the Arabizzi Chrome extension by Omar Selim.",
+            "thumbnailUrl": "https://img.youtube.com/vi/SoIROfUchxQ/hqdefault.jpg",
+            "contentUrl": "https://www.youtube.com/watch?v=SoIROfUchxQ",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/SoIROfUchxQ",
+            "uploadDate": "2026-06-19",
+            "author": {
+              "@type": "Person",
+              "name": "Omar Selim",
+              "url": "https://www.youtube.com/@omar_selim1"
+            }
+          },
+          {
+            "@type": "VideoObject",
             "@id": "https://arabizzi.com/#demo-video",
             "name": "Arabizzi Chrome Extension Demo",
             "description": "Watch how to install Arabizzi and convert Arabizi to Tunisian Arabic or Fusha from your browser toolbar.",
@@ -825,6 +840,66 @@
         text-align: center;
       }
 
+      /* Community reviews */
+      .reviews-grid {
+        display: grid;
+        gap: 20px;
+        max-width: 860px;
+        margin: 0 auto;
+      }
+
+      .review-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: calc(var(--radius) + 4px);
+        padding: 20px;
+        box-shadow: 0 24px 60px rgba(29, 35, 41, 0.08);
+      }
+
+      .review-badge {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--primary-dark);
+        background: var(--primary-soft);
+      }
+
+      .review-meta {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+
+      .review-meta h3 {
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+      }
+
+      .review-meta p {
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin-bottom: 6px;
+      }
+
+      .review-channel {
+        font-size: 0.85rem !important;
+      }
+
+      .review-channel a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .review-channel a:hover {
+        text-decoration: underline;
+      }
+
       /* Features */
       .features-grid {
         display: grid;
@@ -1045,6 +1120,7 @@
             <span>Arabizzi</span>
           </a>
           <nav class="site-nav" aria-label="Site">
+            <a href="#reviews">Reviews</a>
             <a href="./releases.html">Releases</a>
             <a href="./privacy.html">Privacy</a>
             <a href="./vote.html">Vote</a>
@@ -1238,6 +1314,60 @@
           </div>
         </section>
 
+        <section id="reviews">
+          <div class="section-title">
+            <h2>Community reviews</h2>
+            <p>
+              See how creators and users discover Arabizzi — independent videos
+              from the community.
+            </p>
+          </div>
+
+          <div class="reviews-grid">
+            <article class="review-card">
+              <span class="review-badge">★ Creator review</span>
+              <div class="video-wrap">
+                <iframe
+                  title="Arabizzi community review by Omar Selim"
+                  src="https://www.youtube-nocookie.com/embed/SoIROfUchxQ?rel=0&modestbranding=1&origin=https://arabizzi.com"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <div class="review-meta">
+                <div>
+                  <h3 dir="rtl" lang="ar">
+                    محول العربية — إضافة Chrome مجانية للعربيزي
+                  </h3>
+                  <p>
+                    Independent walkthrough of Arabizzi: install, convert Arabizi
+                    to Arabic, and real-world use.
+                  </p>
+                  <p class="review-channel">
+                    By
+                    <a
+                      href="https://www.youtube.com/@omar_selim1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Omar Selim — BIM Arabia</a
+                    >
+                  </p>
+                </div>
+                <a
+                  class="btn btn-ghost"
+                  href="https://www.youtube.com/watch?v=SoIROfUchxQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Watch on YouTube
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <section id="features">
           <div class="section-title">
             <h2>What you get</h2>
@@ -1421,6 +1551,7 @@
             </span>
           </div>
           <div class="footer-links">
+            <a href="#reviews">Reviews</a>
             <a href="./releases.html">Releases</a>
             <a href="./privacy.html">Privacy</a>
             <a href="./vote.html">Vote</a>
